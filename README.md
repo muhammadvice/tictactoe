@@ -15,16 +15,12 @@ This is a simple implementation of the Tic Tac Toe game using Spring Boot for th
 
 ## Getting Started
 
-To get started with this project, follow these steps:
+To run this project:
 
-1. Clone the repository to your local machine:
    ```sh
-   git clone https://github.com/muhammadvice/tictactoe.git
-
-   cd tic-tac-toe-spring-boot
-   
    mvn clean install -DskipTests
-
+   
    mvn spring-boot:run
+   ```
 
 Open your web browser and navigate to http://localhost:8080 to play the Tic Tac Toe game.
