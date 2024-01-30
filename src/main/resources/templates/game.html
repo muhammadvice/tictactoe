@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Tic Tac Toe</title>
+  <style>
+    table {
+        border-collapse: collapse;
+    }
+    td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 24px;
+        cursor: pointer; /* Menambahkan cursor pointer untuk menandakan elemen dapat diklik */
+    }
+  </style>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<table>
+  <tr th:each="row, rowStat : ${board}">
+    <td th:each="cell, colStat : ${row}" th:text="${cell}" th:attr="onclick='makeMove(' + ${rowStat.index} + ',' + ${colStat.index} + ')'"></td>
+  </tr>
+</table>
+<script th:inline="javascript">
+  function makeMove(row, col) {
+      var form = document.createElement('form');
+      form.setAttribute('method', 'post');
+      form.setAttribute('action', '/move');
+      var rowInput = document.createElement('input');
+      rowInput.setAttribute('type', 'hidden');
+      rowInput.setAttribute('name', 'row');
+      rowInput.setAttribute('value', row);
+      form.appendChild(rowInput);
+      var colInput = document.createElement('input');
+      colInput.setAttribute('type', 'hidden');
+      colInput.setAttribute('name', 'col');
+      colInput.setAttribute('value', col);
+      form.appendChild(colInput);
+      document.body.appendChild(form);
+      form.submit();
+  }
+</script>
+</body>
+</html>

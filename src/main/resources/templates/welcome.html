@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Welcome to Tic Tac Toe</title>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<form action="#" th:action="@{/start}" th:object="${boardForm}" method="post">
+  <label for="rows">Enter Board :</label>
+  <input type="number" id="rows" name="rows" min="3" required/>
+  <label for="cols">X</label>
+  <input type="number" id="cols" name="cols" min="3" required/>
+  <button type="submit">Start Game</button>
+</form>
+</body>
+</html>
