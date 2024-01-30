@@ -1,5 +1,7 @@
 package glints.fwd.tictactoe.model;
 
+import java.util.Arrays;
+
 public class Board {
   private char[][] grid;
 
@@ -9,10 +11,8 @@ public class Board {
   }
 
   private void initializeBoard() {
-    for (int i = 0; i < grid.length; i++) {
-      for (int j = 0; j < grid[i].length; j++) {
-        grid[i][j] = '-';
-      }
+    for (char[] chars : grid) {
+      Arrays.fill(chars, '-');
     }
   }
 
